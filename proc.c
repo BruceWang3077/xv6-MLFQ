@@ -496,6 +496,10 @@ kill(int pid)
   return -1;
 }
 
+int 
+mycall(int pid){
+  return pid * pid;
+}
 //PAGEBREAK: 36
 // Print a process listing to console.  For debugging.
 // Runs when user types ^P on console.

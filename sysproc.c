@@ -37,6 +37,16 @@ sys_kill(void)
 }
 
 int
+sys_mycall(void)
+{
+  int pid;
+
+  if(argint(0, &pid) < 0)
+    return -1;
+  return mycall(pid);
+}
+
+int
 sys_getpid(void)
 {
   return myproc()->pid;

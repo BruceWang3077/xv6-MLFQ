@@ -6,10 +6,21 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
+#include <stddef.h>
+
+
+int LOG = 0;
+int RUN_MLFQ = 1; //1: running MLFQ, 0: running Round Robin
+
+
+
+
 
 struct {
   struct spinlock lock;
   struct proc proc[NPROC];
+  int level_slice[4];
+  int rr_slice[4];
 } ptable;
 
 static struct proc *initproc;
@@ -112,6 +123,11 @@ found:
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
 
+  //set tick and priority
+  p->tick = 0; // initially no tick 
+  p->priority = 3; //initially highest priority
+  p->initial_tick = ticks;
+  p->PRINT_TIME = 0;
   return p;
 }
 
@@ -241,7 +257,8 @@ exit(void)
       curproc->ofile[fd] = 0;
     }
   }
-
+  if(curproc->PRINT_TIME) cprintf("process %d done, run for %d ticks\n", curproc->pid, ticks - curproc->initial_tick);
+  
   begin_op();
   iput(curproc->cwd);
   end_op();
@@ -263,7 +280,13 @@ exit(void)
 
   // Jump into the scheduler, never to return.
   curproc->state = ZOMBIE;
+  //reset tick and priority
+  curproc->tick = 0;
+  curproc->priority = 3;
+  // cprintf("in exit for %d, before calling sched\n", curproc->pid);
+  LOG = 0;//set it to 1 when debugging exit() and scheduler
   sched();
+  // cprintf("it came back!\n");
   panic("zombie exit");
 }
 
@@ -319,8 +342,9 @@ wait(void)
 //  - swtch to start running that process
 //  - eventually that process transfers control
 //      via swtch back to the scheduler.
+
 void
-scheduler(void)
+RR(void)
 {
   struct proc *p;
   struct cpu *c = mycpu();
@@ -329,7 +353,6 @@ scheduler(void)
   for(;;){
     // Enable interrupts on this processor.
     sti();
-
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
@@ -340,12 +363,15 @@ scheduler(void)
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
       c->proc = p;
+
+      
       switchuvm(p);
       p->state = RUNNING;
-
       swtch(&(c->scheduler), p->context);
       switchkvm();
-
+      // cprintf("%d %d %d, %d\n", p->pid,p->priority,p->tick, p->state );
+      
+      // cprintf("%d %d %d, sleeping? %d\n", p->pid,p->priority,p->tick, p->state == SLEEPING );
       // Process is done running for now.
       // It should have changed its p->state before coming back.
       c->proc = 0;
@@ -355,6 +381,134 @@ scheduler(void)
   }
 }
 
+void
+mlfq(void)
+{
+  struct proc *p = ptable.proc;
+  struct proc *prev_p = &ptable.proc[NPROC] - 1;
+  struct cpu *c = mycpu();
+  int ASSIGNED = 0; //check whether next_p has been assigned a value.
+  struct proc *next_p = p;//just asigned a value, it doesn't matter (? what if no process avalible)
+  c->proc = 0;
+  acquire(&ptable.lock);
+  ptable.level_slice[0] = 0;
+  ptable.level_slice[1] = 32;
+  ptable.level_slice[2] = 16;
+  ptable.level_slice[3] = 8;
+  ptable.rr_slice[0] = 32;
+  ptable.rr_slice[1] = 8;
+  ptable.rr_slice[2] = 4;
+  ptable.rr_slice[3] = 2;
+  release(&ptable.lock);
+  
+  for(;;){
+    // Enable interrupts on this processor.
+    sti();
+    ASSIGNED = 0;
+    // Loop over process table looking for process to run.
+
+      
+    acquire(&ptable.lock);
+
+
+    
+    int count = 0;
+    if(LOG) cprintf("prev: %d\n", prev_p->pid);
+    // if(LOG) cprintf("entering loop\n");      
+    while(p != prev_p ){
+      //todo: pick the right process
+      count++;
+      if(p->state == RUNNABLE){
+        if(!ASSIGNED || next_p->priority < p->priority){//why not <=? to make sure it's the FIRST AVAILABLE FOUND so round robin is guaranteed;
+          next_p = p;
+          ASSIGNED++;
+        }
+      }
+
+      //increment pointer p or go back to start when reaching the end 
+      if(p == &ptable.proc[NPROC] - 1){
+        p = ptable.proc;
+      }else{
+        p++;
+      }
+    }
+
+    // if(LOG) cprintf("assigned: %d\n" , ASSIGNED);
+    if (!ASSIGNED){
+      if(prev_p->state == RUNNABLE){
+        next_p = prev_p;
+        // if(LOG) cprintf("assign pid %d to next_p \n", prev_p->pid);
+      }
+      else
+        goto wrapup;
+    }
+
+    p = next_p;
+      // if (count > 10)
+    
+
+    // if(LOG) cprintf("count: %d\n", count);
+      // Switch to chosen process.  It is the process's job
+      // to release ptable.lock and then reacquire it
+      // before jumping back to us.
+    // if(LOG) cprintf("curr_p: %d\n", p->pid);
+    c->proc = p;
+    
+    // if(LOG) cprintf("before running p %d : %d ticks\n", p->pid, p->tick);
+    switchuvm(p);
+    p->state = RUNNING;
+    swtch(&(c->scheduler), p->context);
+    // if(LOG) cprintf("after running p %d : %d ticks\n", p->pid, p->tick);
+    switchkvm();
+    // cprintf("%d %d %d %d %d\n", p->pid,p->priority,p->tick,p->tick % ptable.rr_slice[p->priority], p->state == RUNNABLE);
+    if(LOG) cprintf("switch back to scheduler from pid: %d\n", p->pid);
+    // if(p->state != RUNNABLE ||  p->tick % ptable.rr_slice[p->priority] == 0){// REMEMBER TO CHECK PROC STATE!
+    if(p->state != SLEEPING && p->tick % ptable.rr_slice[p->priority] == 0){
+      // RR_FINISH = 1;
+      prev_p = p;
+      if(LOG)cprintf("update prev\n");
+      if(LOG) cprintf("pid %d prio: %d tick: %d,  runnable: %d \n", p->pid, p->priority, p->tick, p->state == RUNNABLE? 1:0);
+    }else{
+      p = prev_p;
+    }
+    // check if the process run out of the slice on current level
+    
+    if(p->priority > 0 && p->tick >= ptable.level_slice[p->priority] ){
+      if(LOG) cprintf("pid %d tick: %d prio: %d\n", p->pid, p->tick, p->priority);
+      p->tick = 0;
+      p->priority--;
+      prev_p = p;
+    }else{
+      p = prev_p;
+    }
+    // if(p->state != SLEEPING) prev_p = p; //increment pointer p or go back to start when reaching the end
+wrapup:
+    if(p == &ptable.proc[NPROC] - 1){
+      p = ptable.proc;
+    }else{
+      p++;
+    }
+
+    // Process is done running for now.
+    // It should have changed its p->state before coming back.
+    c->proc = 0;
+    
+    release(&ptable.lock);
+
+  }
+}
+
+void 
+scheduler(void)
+{
+
+
+  if(RUN_MLFQ)
+    mlfq();
+  else
+    RR();
+  for(;;);//due to the "scheduler(void) __attribute__((noreturn))" declaration
+}
 // Enter scheduler.  Must hold only ptable.lock
 // and have changed proc->state. Saves and restores
 // intena because intena is a property of this
@@ -362,6 +516,16 @@ scheduler(void)
 // be proc->intena and proc->ncli, but that would
 // break in the few places where a lock is held but
 // there's no process.
+void 
+boost(void)
+{
+  struct proc *p;
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    p->tick = 0;
+    p->priority = 3;
+  }
+  // cprintf("------------------------boost---------------------------\n");
+}
 void
 sched(void)
 {
@@ -438,7 +602,6 @@ sleep(void *chan, struct spinlock *lk)
   // Go to sleep.
   p->chan = chan;
   p->state = SLEEPING;
-
   sched();
 
   // Tidy up.
@@ -458,10 +621,13 @@ static void
 wakeup1(void *chan)
 {
   struct proc *p;
-
-  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
-    if(p->state == SLEEPING && p->chan == chan)
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->state == SLEEPING && p->chan == chan){
       p->state = RUNNABLE;
+    }
+      
+  }
+    
 }
 
 // Wake up all processes sleeping on chan.
@@ -497,8 +663,15 @@ kill(int pid)
 }
 
 int 
-mycall(int pid){
-  return pid * pid;
+setlog(int pid){
+  // LOG = LOG == 1? 0:1;
+  return 0;
+}
+
+int 
+printtime(int pid){
+  myproc()->PRINT_TIME = 1;
+  return 0;
 }
 //PAGEBREAK: 36
 // Print a process listing to console.  For debugging.

@@ -37,14 +37,25 @@ sys_kill(void)
 }
 
 int
-sys_mycall(void)
+sys_setlog(void)
 {
   int pid;
 
   if(argint(0, &pid) < 0)
     return -1;
-  return mycall(pid);
+  return setlog(pid);
 }
+
+int
+sys_printtime(void)
+{
+  int pid;
+
+  if(argint(0, &pid) < 0)
+    return -1;
+  return printtime(pid);
+}
+
 
 int
 sys_getpid(void)
@@ -71,18 +82,21 @@ sys_sleep(void)
 {
   int n;
   uint ticks0;
-
   if(argint(0, &n) < 0)
     return -1;
+  // cprintf("-----------tick : %d---------\n", n);
   acquire(&tickslock);
   ticks0 = ticks;
+  // cprintf("put %d to sleep %d ticks\n", myproc()->pid, n);
   while(ticks - ticks0 < n){
     if(myproc()->killed){
       release(&tickslock);
       return -1;
     }
+    // cprintf("sleep again\n");
     sleep(&ticks, &tickslock);
   }
+  // cprintf("proc %d slept %d ticks, ticks: %d\n", myproc()->pid, ticks - ticks0, myproc()->tick);
   release(&tickslock);
   return 0;
 }

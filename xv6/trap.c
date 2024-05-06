@@ -13,6 +13,17 @@ struct gatedesc idt[256];
 extern uint vectors[];  // in vectors.S: array of 256 entry pointers
 struct spinlock tickslock;
 uint ticks;
+int DIFF = 480;
+int last_tick = 0;
+int BOOST_FLAG = 1;
+
+struct{
+  struct spinlock stat_lock;
+  int stat_pid[STAT_BATCH];
+  int stat_priority[STAT_BATCH];
+  int pid_index;
+  int prio_index;
+}stat;
 
 void
 tvinit(void)
@@ -22,7 +33,8 @@ tvinit(void)
   for(i = 0; i < 256; i++)
     SETGATE(idt[i], 0, SEG_KCODE<<3, vectors[i], 0);
   SETGATE(idt[T_SYSCALL], 1, SEG_KCODE<<3, vectors[T_SYSCALL], DPL_USER);
-
+  stat.pid_index = 0;
+  stat.prio_index = 0;
   initlock(&tickslock, "time");
 }
 
@@ -51,6 +63,7 @@ trap(struct trapframe *tf)
     if(cpuid() == 0){
       acquire(&tickslock);
       ticks++;
+      // cprintf("-\n");
       wakeup(&ticks);
       release(&tickslock);
     }
@@ -103,9 +116,19 @@ trap(struct trapframe *tf)
   // Force process to give up CPU on clock tick.
   // If interrupts were on while locks held, would need to check nlock.
   if(myproc() && myproc()->state == RUNNING &&
-     tf->trapno == T_IRQ0+IRQ_TIMER)
-    yield();
-
+     tf->trapno == T_IRQ0+IRQ_TIMER){
+      // cprintf("before yield, ticks: %d\n", ticks);
+      // cprintf("in trap: %d, \n", myproc()->pid);
+      // cprintf("%d %d\n", myproc()->pid, myproc()->priority);
+      myproc()->tick++;
+      if(BOOST_FLAG && ticks - last_tick >= DIFF){
+        boost();
+        // cprintf("last: %d, now: %d\n", last_tick, ticks);
+        last_tick = ticks;
+      }
+      yield();
+     }
+    
   // Check if the process has been killed since we yielded
   if(myproc() && myproc()->killed && (tf->cs&3) == DPL_USER)
     exit();

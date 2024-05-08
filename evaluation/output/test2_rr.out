@@ -1,0 +1,559 @@
+EPOCH 2
+interactive process: 4
+interactive process: 5
+process 7 done, run for 125 ticks
+process 6 done, run for 125 ticks
+process 4 done, run for 192 ticks
+process 5 done, run for 196 ticks
+EPOCH 0 DONE
+
+EPOCH 4
+interactive process: 8
+interactive process: 9
+process 11 done, run for 245 ticks
+process 13 done, run for 246 ticks
+process 12 done, run for 249 ticks
+process 10 done, run for 252 ticks
+process 8 done, run for 314 ticks
+process 9 done, run for 315 ticks
+EPOCH 1 DONE
+
+EPOCH 6
+interactive process: 14
+interactive process: 15
+process 17 done, run for 364 ticks
+process 16 done, run for 373 ticks
+process 19 done, run for 371 ticks
+process 20 done, run for 374 ticks
+process 18 done, run for 378 ticks
+process 21 done, run for 376 ticks
+process 14 done, run for 441 ticks
+process 15 done, run for 440 ticks
+EPOCH 2 DONE
+
+EPOCH 8
+interactive process: 22
+interactive process: 23
+process 25 done, run for 485 ticks
+process 26 done, run for 485 ticks
+process 24 done, run for 491 ticks
+process 28 done, run for 488 ticks
+process 30 done, run for 489 ticks
+process 27 done, run for 494 ticks
+process 29 done, run for 490 ticks
+process 31 done, run for 492 ticks
+process 22 done, run for 558 ticks
+process 23 done, run for 561 ticks
+EPOCH 3 DONE
+
+EPOCH 10
+interactive process: 32
+interactive process: 33
+process 35 done, run for 593 ticks
+process 36 done, run for 602 ticks
+process 38 done, run for 599 ticks
+process 34 done, run for 609 ticks
+process 39 done, run for 605 ticks
+process 40 done, run for 605 ticks
+process 43 done, run for 599 ticks
+process 41 done, run for 608 ticks
+process 37 done, run for 613 ticks
+process 42 done, run for 601 ticks
+process 32 done, run for 680 ticks
+process 33 done, run for 679 ticks
+EPOCH 4 DONE
+
+EPOCH 12
+interactive process: 44
+interactive process: 45
+process 49 done, run for 727 ticks
+process 47 done, run for 738 ticks
+process 53 done, run for 734 ticks
+process 48 done, run for 745 ticks
+process 51 done, run for 746 ticks
+process 46 done, run for 753 ticks
+process 52 done, run for 746 ticks
+process 55 done, run for 747 ticks
+process 57 done, run for 738 ticks
+process 50 done, run for 754 ticks
+process 54 done, run for 751 ticks
+process 56 done, run for 741 ticks
+process 44 done, run for 822 ticks
+process 45 done, run for 825 ticks
+EPOCH 5 DONE
+
+EPOCH 14
+interactive process: 58
+interactive process: 59
+process 63 done, run for 856 ticks
+process 61 done, run for 867 ticks
+process 62 done, run for 879 ticks
+process 66 done, run for 876 ticks
+process 67 done, run for 876 ticks
+process 71 done, run for 871 ticks
+process 65 done, run for 884 ticks
+process 69 done, run for 876 ticks
+process 60 done, run for 894 ticks
+process 68 done, run for 889 ticks
+process 73 done, run for 869 ticks
+process 70 done, run for 883 ticks
+process 72 done, run for 883 ticks
+process 64 done, run for 898 ticks
+process 58 done, run for 959 ticks
+process 59 done, run for 960 ticks
+EPOCH 6 DONE
+
+EPOCH 16
+interactive process: 74
+interactive process: 75
+process 77 done, run for 942 ticks
+process 78 done, run for 943 ticks
+process 79 done, run for 957 ticks
+process 83 done, run for 955 ticks
+process 84 done, run for 956 ticks
+process 81 done, run for 966 ticks
+process 82 done, run for 966 ticks
+process 76 done, run for 979 ticks
+process 86 done, run for 965 ticks
+process 88 done, run for 966 ticks
+process 91 done, run for 954 ticks
+process 85 done, run for 980 ticks
+process 87 done, run for 970 ticks
+process 90 done, run for 957 ticks
+process 80 done, run for 986 ticks
+process 89 done, run for 971 ticks
+process 74 done, run for 1049 ticks
+process 75 done, run for 1049 ticks
+EPOCH 7 DONE
+
+EPOCH 18
+interactive process: 92
+interactive process: 93
+process 95 done, run for 1101 ticks
+process 97 done, run for 1102 ticks
+process 99 done, run for 1099 ticks
+process 94 done, run for 1116 ticks
+process 101 done, run for 1114 ticks
+process 96 done, run for 1128 ticks
+process 98 done, run for 1124 ticks
+process 103 done, run for 1118 ticks
+process 102 done, run for 1127 ticks
+process 105 done, run for 1128 ticks
+process 107 done, run for 1117 ticks
+process 109 done, run for 1104 ticks
+process 100 done, run for 1140 ticks
+process 110 done, run for 1109 ticks
+process 108 done, run for 1112 ticks
+process 111 done, run for 1112 ticks
+process 106 done, run for 1127 ticks
+process 104 done, run for 1141 ticks
+process 92 done, run for 1214 ticks
+process 93 done, run for 1214 ticks
+EPOCH 8 DONE
+
+EPOCH 20
+interactive process: 112
+interactive process: 113
+process 116 done, run for 1182 ticks
+process 118 done, run for 1198 ticks
+process 120 done, run for 1199 ticks
+process 114 done, run for 1217 ticks
+process 119 done, run for 1214 ticks
+process 115 done, run for 1231 ticks
+process 122 done, run for 1221 ticks
+process 124 done, run for 1222 ticks
+process 128 done, run for 1213 ticks
+process 117 done, run for 1242 ticks
+process 126 done, run for 1221 ticks
+process 130 done, run for 1207 ticks
+process 132 done, run for 1208 ticks
+process 123 done, run for 1238 ticks
+process 127 done, run for 1227 ticks
+process 131 done, run for 1212 ticks
+process 121 done, run for 1250 ticks
+process 125 done, run for 1242 ticks
+process 129 done, run for 1230 ticks
+process 133 done, run for 1219 ticks
+process 112 done, run for 1318 ticks
+process 113 done, run for 1320 ticks
+EPOCH 9 DONE
+
+EPOCH 22
+interactive process: 134
+interactive process: 135
+process 137 done, run for 1300 ticks
+process 138 done, run for 1298 ticks
+process 139 done, run for 1318 ticks
+process 141 done, run for 1314 ticks
+process 143 done, run for 1315 ticks
+process 136 done, run for 1336 ticks
+process 142 done, run for 1330 ticks
+process 145 done, run for 1322 ticks
+process 147 done, run for 1323 ticks
+process 140 done, run for 1347 ticks
+process 144 done, run for 1342 ticks
+process 148 done, run for 1335 ticks
+process 149 done, run for 1323 ticks
+process 150 done, run for 1323 ticks
+process 151 done, run for 1323 ticks
+process 146 done, run for 1343 ticks
+process 153 done, run for 1314 ticks
+process 154 done, run for 1319 ticks
+process 156 done, run for 1320 ticks
+process 157 done, run for 1299 ticks
+process 155 done, run for 1322 ticks
+process 152 done, run for 1340 ticks
+process 134 done, run for 1430 ticks
+process 135 done, run for 1429 ticks
+EPOCH 10 DONE
+
+EPOCH 24
+interactive process: 158
+interactive process: 159
+process 162 done, run for 1410 ticks
+process 163 done, run for 1410 ticks
+process 161 done, run for 1432 ticks
+process 165 done, run for 1428 ticks
+process 164 done, run for 1452 ticks
+process 167 done, run for 1448 ticks
+process 171 done, run for 1442 ticks
+process 169 done, run for 1457 ticks
+process 170 done, run for 1457 ticks
+process 174 done, run for 1446 ticks
+process 160 done, run for 1483 ticks
+process 168 done, run for 1478 ticks
+process 173 done, run for 1457 ticks
+process 175 done, run for 1457 ticks
+process 178 done, run for 1442 ticks
+process 166 done, run for 1486 ticks
+process 177 done, run for 1449 ticks
+process 172 done, run for 1484 ticks
+process 176 done, run for 1471 ticks
+process 180 done, run for 1435 ticks
+process 181 done, run for 1435 ticks
+process 182 done, run for 1435 ticks
+process 179 done, run for 1457 ticks
+process 183 done, run for 1437 ticks
+process 158 done, run for 1565 ticks
+process 159 done, run for 1567 ticks
+EPOCH 11 DONE
+
+EPOCH 26
+interactive process: 184
+interactive process: 185
+process 188 done, run for 1520 ticks
+process 187 done, run for 1544 ticks
+process 189 done, run for 1544 ticks
+process 190 done, run for 1544 ticks
+process 192 done, run for 1540 ticks
+process 193 done, run for 1540 ticks
+process 186 done, run for 1564 ticks
+process 191 done, run for 1558 ticks
+process 194 done, run for 1559 ticks
+process 195 done, run for 1551 ticks
+process 196 done, run for 1551 ticks
+process 197 done, run for 1566 ticks
+process 199 done, run for 1554 ticks
+process 203 done, run for 1540 ticks
+process 198 done, run for 1578 ticks
+process 200 done, run for 1565 ticks
+process 201 done, run for 1565 ticks
+process 202 done, run for 1565 ticks
+process 206 done, run for 1538 ticks
+process 208 done, run for 1539 ticks
+process 204 done, run for 1562 ticks
+process 205 done, run for 1562 ticks
+process 207 done, run for 1543 ticks
+process 210 done, run for 1520 ticks
+process 209 done, run for 1545 ticks
+process 211 done, run for 1522 ticks
+process 184 done, run for 1672 ticks
+process 185 done, run for 1672 ticks
+EPOCH 12 DONE
+
+EPOCH 28
+interactive process: 212
+interactive process: 213
+process 216 done, run for 1604 ticks
+process 215 done, run for 1630 ticks
+process 218 done, run for 1631 ticks
+process 214 done, run for 1655 ticks
+process 219 done, run for 1650 ticks
+process 221 done, run for 1651 ticks
+process 223 done, run for 1643 ticks
+process 217 done, run for 1675 ticks
+process 220 done, run for 1671 ticks
+process 222 done, run for 1671 ticks
+process 225 done, run for 1663 ticks
+process 228 done, run for 1652 ticks
+process 226 done, run for 1680 ticks
+process 229 done, run for 1668 ticks
+process 232 done, run for 1654 ticks
+process 224 done, run for 1693 ticks
+process 230 done, run for 1681 ticks
+process 234 done, run for 1666 ticks
+process 227 done, run for 1691 ticks
+process 233 done, run for 1675 ticks
+process 236 done, run for 1655 ticks
+process 240 done, run for 1633 ticks
+process 231 done, run for 1680 ticks
+process 235 done, run for 1659 ticks
+process 238 done, run for 1660 ticks
+process 239 done, run for 1635 ticks
+process 241 done, run for 1636 ticks
+process 237 done, run for 1662 ticks
+process 212 done, run for 1788 ticks
+process 213 done, run for 1789 ticks
+EPOCH 13 DONE
+
+EPOCH 30
+interactive process: 242
+interactive process: 243
+process 246 done, run for 1763 ticks
+process 250 done, run for 1762 ticks
+process 244 done, run for 1790 ticks
+process 245 done, run for 1790 ticks
+process 248 done, run for 1787 ticks
+process 254 done, run for 1783 ticks
+process 249 done, run for 1811 ticks
+process 252 done, run for 1804 ticks
+process 253 done, run for 1805 ticks
+process 256 done, run for 1794 ticks
+process 247 done, run for 1836 ticks
+process 258 done, run for 1815 ticks
+process 260 done, run for 1800 ticks
+process 262 done, run for 1801 ticks
+process 255 done, run for 1858 ticks
+process 259 done, run for 1847 ticks
+process 264 done, run for 1813 ticks
+process 266 done, run for 1814 ticks
+process 257 done, run for 1858 ticks
+process 263 done, run for 1843 ticks
+process 265 done, run for 1823 ticks
+process 268 done, run for 1800 ticks
+process 272 done, run for 1776 ticks
+process 251 done, run for 1885 ticks
+process 261 done, run for 1849 ticks
+process 269 done, run for 1807 ticks
+process 273 done, run for 1782 ticks
+process 270 done, run for 1810 ticks
+process 271 done, run for 1785 ticks
+process 267 done, run for 1836 ticks
+process 242 done, run for 1957 ticks
+process 243 done, run for 1957 ticks
+EPOCH 14 DONE
+
+EPOCH 32
+interactive process: 274
+interactive process: 275
+process 278 done, run for 1855 ticks
+process 280 done, run for 1857 ticks
+process 282 done, run for 1883 ticks
+process 279 done, run for 1916 ticks
+process 288 done, run for 1906 ticks
+process 276 done, run for 1944 ticks
+process 284 done, run for 1939 ticks
+process 286 done, run for 1930 ticks
+process 277 done, run for 1968 ticks
+process 283 done, run for 1961 ticks
+process 287 done, run for 1952 ticks
+process 290 done, run for 1939 ticks
+process 292 done, run for 1940 ticks
+process 281 done, run for 1985 ticks
+process 285 done, run for 1980 ticks
+process 294 done, run for 1941 ticks
+process 300 done, run for 1924 ticks
+process 289 done, run for 1986 ticks
+process 293 done, run for 1973 ticks
+process 296 done, run for 1956 ticks
+process 297 done, run for 1957 ticks
+process 298 done, run for 1935 ticks
+process 302 done, run for 1911 ticks
+process 295 done, run for 1966 ticks
+process 301 done, run for 1919 ticks
+process 306 done, run for 1893 ticks
+process 291 done, run for 1989 ticks
+process 303 done, run for 1924 ticks
+process 304 done, run for 1924 ticks
+process 299 done, run for 1952 ticks
+process 305 done, run for 1897 ticks
+process 307 done, run for 1899 ticks
+process 274 done, run for 2084 ticks
+process 275 done, run for 2087 ticks
+EPOCH 15 DONE
+
+EPOCH 34
+interactive process: 308
+interactive process: 309
+process 311 done, run for 1915 ticks
+process 313 done, run for 1916 ticks
+process 312 done, run for 1979 ticks
+process 315 done, run for 1975 ticks
+process 316 done, run for 1975 ticks
+process 319 done, run for 1968 ticks
+process 310 done, run for 2008 ticks
+process 317 done, run for 2004 ticks
+process 323 done, run for 1986 ticks
+process 314 done, run for 2034 ticks
+process 321 done, run for 2022 ticks
+process 322 done, run for 2023 ticks
+process 325 done, run for 2012 ticks
+process 320 done, run for 2045 ticks
+process 324 done, run for 2032 ticks
+process 327 done, run for 2017 ticks
+process 329 done, run for 2018 ticks
+process 331 done, run for 2000 ticks
+process 318 done, run for 2070 ticks
+process 326 done, run for 2032 ticks
+process 328 done, run for 2046 ticks
+process 333 done, run for 2029 ticks
+process 335 done, run for 2006 ticks
+process 330 done, run for 2038 ticks
+process 332 done, run for 2038 ticks
+process 336 done, run for 2015 ticks
+process 338 done, run for 1988 ticks
+process 339 done, run for 1988 ticks
+process 343 done, run for 1960 ticks
+process 334 done, run for 2020 ticks
+process 341 done, run for 1963 ticks
+process 337 done, run for 2023 ticks
+process 342 done, run for 1965 ticks
+process 340 done, run for 1997 ticks
+process 308 done, run for 2176 ticks
+process 309 done, run for 2176 ticks
+EPOCH 16 DONE
+
+EPOCH 36
+interactive process: 344
+interactive process: 345
+process 347 done, run for 2071 ticks
+process 348 done, run for 2071 ticks
+process 349 done, run for 2068 ticks
+process 351 done, run for 2069 ticks
+process 346 done, run for 2104 ticks
+process 352 done, run for 2101 ticks
+process 354 done, run for 2096 ticks
+process 350 done, run for 2130 ticks
+process 353 done, run for 2123 ticks
+process 356 done, run for 2114 ticks
+process 358 done, run for 2115 ticks
+process 360 done, run for 2102 ticks
+process 362 done, run for 2104 ticks
+process 357 done, run for 2138 ticks
+process 361 done, run for 2126 ticks
+process 364 done, run for 2109 ticks
+process 355 done, run for 2169 ticks
+process 359 done, run for 2159 ticks
+process 365 done, run for 2128 ticks
+process 370 done, run for 2110 ticks
+process 366 done, run for 2145 ticks
+process 367 done, run for 2145 ticks
+process 369 done, run for 2124 ticks
+process 372 done, run for 2099 ticks
+process 368 done, run for 2135 ticks
+process 374 done, run for 2111 ticks
+process 363 done, run for 2184 ticks
+process 373 done, run for 2119 ticks
+process 376 done, run for 2091 ticks
+process 377 done, run for 2091 ticks
+process 379 done, run for 2059 ticks
+process 381 done, run for 2061 ticks
+process 375 done, run for 2095 ticks
+process 380 done, run for 2063 ticks
+process 378 done, run for 2097 ticks
+process 371 done, run for 2153 ticks
+process 344 done, run for 2287 ticks
+process 345 done, run for 2288 ticks
+EPOCH 17 DONE
+
+EPOCH 38
+interactive process: 382
+interactive process: 383
+process 385 done, run for 2107 ticks
+process 384 done, run for 2143 ticks
+process 387 done, run for 2141 ticks
+process 389 done, run for 2143 ticks
+process 388 done, run for 2176 ticks
+process 391 done, run for 2170 ticks
+process 392 done, run for 2203 ticks
+process 393 done, run for 2203 ticks
+process 396 done, run for 2194 ticks
+process 386 done, run for 2240 ticks
+process 394 done, run for 2231 ticks
+process 395 done, run for 2220 ticks
+process 399 done, run for 2207 ticks
+process 401 done, run for 2208 ticks
+process 390 done, run for 2262 ticks
+process 397 done, run for 2244 ticks
+process 398 done, run for 2244 ticks
+process 403 done, run for 2212 ticks
+process 402 done, run for 2250 ticks
+process 405 done, run for 2232 ticks
+process 407 done, run for 2210 ticks
+process 400 done, run for 2266 ticks
+process 404 done, run for 2247 ticks
+process 406 done, run for 2247 ticks
+process 409 done, run for 2225 ticks
+process 412 done, run for 2201 ticks
+process 408 done, run for 2236 ticks
+process 411 done, run for 2211 ticks
+process 410 done, run for 2220 ticks
+process 415 done, run for 2192 ticks
+process 416 done, run for 2192 ticks
+process 419 done, run for 2160 ticks
+process 413 done, run for 2227 ticks
+process 414 done, run for 2198 ticks
+process 417 done, run for 2199 ticks
+process 421 done, run for 2167 ticks
+process 420 done, run for 2168 ticks
+process 418 done, run for 2168 ticks
+process 382 done, run for 2394 ticks
+process 383 done, run for 2397 ticks
+EPOCH 18 DONE
+
+EPOCH 40
+interactive process: 422
+interactive process: 423
+process 425 done, run for 2216 ticks
+process 426 done, run for 2217 ticks
+process 430 done, run for 2255 ticks
+process 424 done, run for 2294 ticks
+process 428 done, run for 2290 ticks
+process 429 done, run for 2290 ticks
+process 432 done, run for 2283 ticks
+process 433 done, run for 2317 ticks
+process 434 done, run for 2317 ticks
+process 438 done, run for 2309 ticks
+process 427 done, run for 2358 ticks
+process 431 done, run for 2355 ticks
+process 436 done, run for 2336 ticks
+process 437 done, run for 2336 ticks
+process 440 done, run for 2347 ticks
+process 442 done, run for 2348 ticks
+process 435 done, run for 2397 ticks
+process 441 done, run for 2370 ticks
+process 444 done, run for 2351 ticks
+process 445 done, run for 2351 ticks
+process 446 done, run for 2351 ticks
+process 449 done, run for 2330 ticks
+process 439 done, run for 2406 ticks
+process 448 done, run for 2348 ticks
+process 450 done, run for 2349 ticks
+process 452 done, run for 2322 ticks
+process 447 done, run for 2387 ticks
+process 451 done, run for 2363 ticks
+process 453 done, run for 2335 ticks
+process 455 done, run for 2305 ticks
+process 443 done, run for 2416 ticks
+process 456 done, run for 2314 ticks
+process 458 done, run for 2281 ticks
+process 460 done, run for 2283 ticks
+process 454 done, run for 2351 ticks
+process 459 done, run for 2288 ticks
+process 462 done, run for 2251 ticks
+process 457 done, run for 2325 ticks
+process 463 done, run for 2254 ticks
+process 461 done, run for 2294 ticks
+process 422 done, run for 2530 ticks
+process 423 done, run for 2532 ticks
+EPOCH 19 DONE

@@ -3,17 +3,49 @@
 #include "user.h"
 #include "fcntl.h"
 
-#define NUM_ITERATIONS 10
-#define SLEEP_TICKS 10
-#define NUM_PROCESSES 10
+#define NUM_ITERATIONS 1
+#define SLEEP_TICKS 5
+#define NUM_PROCESSES 20
 // #define ITERATIONS 600000000
-#define ITERATIONS 300000000
+#define ITERATIONS 100000000
+//test2 start NUM_PROCESSES of CPU heavy processes and 1 interactive process, check the finish time of each process
 
-int main() {
-    // Open the file for writing (create if it doesn't exist)
-    int pid = fork();
+int main(void) {
+    int i;
+    int pid;
+
+    // setlog(0);
+    
+
+    
+    // Start 5 CPU-heavy processes
+    for (i = 0; i < NUM_PROCESSES; i++) {
+        pid = fork();
+        if (pid == 0) {
+            // printtime(0);
+            // Child process
+            // Run a CPU-heavy task (e.g., loop)
+            volatile int sum = 0;
+            int j;
+            for (j = 0; j < ITERATIONS; j++) {
+                sum += j;
+            }
+            // Exit the child process when done
+            // printf(1, "cpu heavy done\n");
+            exit();
+        } else if (pid < 0) {
+            // Fork failed
+            printf(1, "Failed to fork process %d\n", i);
+            exit();
+        }
+        // Parent process continues
+    }
+
+        pid = fork();
+    
     if(pid == 0){
-        setlog(0);
+    // Open the file for writing (create if it doesn't exist)
+        // printtime(0);
         int fd = open("output.txt", O_WRONLY | O_CREATE);
         if (fd < 0) {
             // Handle error using printf with file descriptor `1` (stdout)
@@ -44,30 +76,19 @@ int main() {
 
         // Close the file
         close(fd);
-        setlog(0);
-        printf(1,"interactive end\n");
+        // printf(1,"interactive end\n");
         exit();
-        
     }
-    printf(1,"pid\n: %d", pid);
-    pid = fork();
-    if(pid == 0){
-        for(int i = 0; i < ITERATIONS; i++){
-            i++;
-            i--;
-        }
-        printf(1,"cpu heavy end\n");
-        exit();
-        
+    printf(1,"interactive process: %d\n", pid);
+    
+    // Wait for all child processes to complete
+    for (i = 0; i < NUM_PROCESSES + 1; i++) {
+        wait();
     }
-    wait();
-    wait();
-    // Exit the program successfully
+
+    // setlog(0);
+    printf(1, "All %d CPU-heavy processes have completed.\n", NUM_PROCESSES);
+
+    // Exit the main process
     exit();
 }
-
-
-
-
-
-

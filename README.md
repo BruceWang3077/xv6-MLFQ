@@ -1,7 +1,7 @@
 # MLFQ scheudler on xv6
-This project implements Multi-Level Feedback Queue scheduler on xv6(the previous version based on x86). 
-More about [xv6](https://pdos.csail.mit.edu/6.828/2012/xv6/book-rev7.pdf).
-More about [](https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf).
+This project implements Multi-Level Feedback Queue scheduler on xv6(the previous version based on x86). \
+More about [xv6](https://pdos.csail.mit.edu/6.828/2012/xv6/book-rev7.pdf).\
+More about [MLFQ](https://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf).
 
 ## Test the Program
 First change directory to ./xv6

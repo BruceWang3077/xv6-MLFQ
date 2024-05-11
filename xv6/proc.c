@@ -664,7 +664,7 @@ kill(int pid)
 
 int 
 setlog(int pid){
-  // LOG = LOG == 1? 0:1;
+  myproc()->LOG = 1;
   return 0;
 }
 

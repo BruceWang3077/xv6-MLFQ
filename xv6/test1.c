@@ -10,13 +10,14 @@ int main(void) {
     int i;
     int pid;
 
-    setlog(0);
-    // Start 5 CPU-heavy processes
+    
+    // Start NUM_PROCESSES CPU-heavy processes
     for (i = 0; i < NUM_PROCESSES; i++) {
         pid = fork();
         if (pid == 0) {
+            
             // Child process
-            // Run a CPU-heavy task (e.g., loop)
+            setlog(0);
             volatile int sum = 0;
             int j;
             for (j = 0; j < ITERATIONS; j++) {
@@ -37,7 +38,6 @@ int main(void) {
         wait();
     }
 
-    setlog(0);
     printf(1, "All %d CPU-heavy processes have completed.\n", NUM_PROCESSES);
 
     // Exit the main process

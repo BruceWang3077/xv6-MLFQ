@@ -45,8 +45,9 @@ int main(void) {
     
     if(pid == 0){
     // Open the file for writing (create if it doesn't exist)
-        // printtime(0);
+        printtime(0);
         int fd = open("output.txt", O_WRONLY | O_CREATE);
+        
         if (fd < 0) {
             // Handle error using printf with file descriptor `1` (stdout)
             printf(1, "Failed to open file for writing.\n");
@@ -59,7 +60,6 @@ int main(void) {
 
         // For loop to iterate NUM_ITERATIONS times
         for (int i = 0; i < NUM_ITERATIONS; i++) {
-            // Write the string "hello" to the file
             // printf(1, "----------------before write----------------\n");
             if (write(fd, str, len) != len) {
                 // Handle write error using printf with file descriptor `1` (stdout)

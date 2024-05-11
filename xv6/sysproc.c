@@ -87,7 +87,7 @@ sys_sleep(void)
   // cprintf("-----------tick : %d---------\n", n);
   acquire(&tickslock);
   ticks0 = ticks;
-  cprintf("put %d to sleep %d ticks\n", myproc()->pid, n);
+  if(myproc()->PRINT_TIME) cprintf("put %d to sleep %d ticks\n", myproc()->pid, n);
   while(ticks - ticks0 < n){
     if(myproc()->killed){
       release(&tickslock);
@@ -96,7 +96,7 @@ sys_sleep(void)
     // cprintf("sleep again\n");
     sleep(&ticks, &tickslock);
   }
-  cprintf("proc %d slept %d ticks, ticks: %d\n", myproc()->pid, ticks - ticks0, myproc()->tick);
+  if(myproc()->PRINT_TIME) cprintf("proc %d slept %d ticks, ticks: %d\n", myproc()->pid, ticks - ticks0, myproc()->tick);
   release(&tickslock);
   return 0;
 }

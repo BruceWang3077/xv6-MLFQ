@@ -55,4 +55,12 @@ For test1 and test2, to check the analysis graph of the test result, copy and pa
 * user.h
 * usys.S
 
+## A Shortcut to Our Test Results:
+<img src="./evaluation/test1_rr.png" style="width: 40%;" />
+<img src="./evaluation/test1_mlfq.png" style="width: 40%;" />
+<img src="./evaluation/test2_rr.png" style="width: 40%;" />
+<img src="./evaluation/test2_mlfq.png" style="width: 40%;" />
+
+
+
 
